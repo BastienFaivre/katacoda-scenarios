@@ -1,8 +1,8 @@
 {
-    "title": "New Scenario Template",
-    "description": "A simple scenario example.",
-    "difficulty": "Beginner",
-    "time": "3 minutes",
+    "title": "Optimize GitHub actions for nodeJS project",
+    "description": "This tutorial aims to show you how you can speed up your GitHub actions",
+    "difficulty": "Intermediate",
+    "time": "30 minutes",
     "details": {
       "steps": [
         {
@@ -27,7 +27,7 @@
       }
     },
     "environment": {
-      "uilayout": "terminal"
+      "uilayout": "vscode-terminal-split"
     },
     "backend": {
       "imageid": "ubuntu:2004"
