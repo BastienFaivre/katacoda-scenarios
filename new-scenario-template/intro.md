@@ -1,29 +1,21 @@
-# New Scenario Template (Your Title Here)
+# Introduction
 
-This is a mostly empty template. To create your own first scenario, duplicate this in your own repo, then modify it as needed.
+In this tutorial, you will learn some techniques to speed up the execution time of your GitHub Actions for your nodeJS project. Some other tips will be given to improve your pipelines, not necessarily related to time improvement.
 
-## Description
+## Structure
 
-2-3 sentences on what the scenario covers, illustrates, and teaches. What technology is used, and what task will the learner have accomplished by the end?
-
-Importantly, why does this matter? What can this technology, tool, or approach help you accomplish? Briefly communicate the real-world application(s) of this skill.
+You start with a provided sample nodeJS project and a naive GitHub Actions workflow. Then, at each step, one improvement is presented and explained to you. Alongside these explanations, you will modify the workflow code to apply the improvement. Then at the end of the step, you will be able to run the workflow and notice the potential time improvement compared to the previous versions.
 
 ## Learning Objective
 
-- 3-4 bullets
-- of what you
-- will learn
+- Speed up workflows
+- Write clean workflows code
+- Save precious time and resources
 
 ## Prerequisite Skills
 
-Define the target audience here, and list any prerequisite skills. For example:
-
-This is for software developers with prior experience using Jenkins to deploy web applications.
+This tutorial is for anyone who is currently working or want to work on a nodeJS project and use GitHub Actions as CI but don't know how to write proper workflows and optimize them.
 
 ## Table of Contents
 
-If the scenario is part of a set of related scenarios, the table of contents will appear here as a bulleted list of all the scenario titles, with links to each other.
-
-- Scenario A
-- Scenario B
-- Scenario C
+TODO
