@@ -18,4 +18,6 @@ This tutorial is for anyone who is currently working or want to work on a nodeJS
 
 ## Table of Contents
 
-TODO
+- Getting started
+- Improvement #1: The choice of Runner
+- Improvement #2:

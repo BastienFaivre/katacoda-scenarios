@@ -6,15 +6,15 @@
     "details": {
       "steps": [
         {
-          "title": "Improvement #1",
+          "title": "Getting started",
           "text": "step1.md"
         },
         {
-          "title": "Improvement #2",
+          "title": "Improvement #1",
           "text": "step2.md"
         },
         {
-          "title": "Improvement #3",
+          "title": "Improvement #2",
           "text": "step3.md"
         }
       ],
