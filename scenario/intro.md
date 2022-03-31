@@ -19,5 +19,5 @@ This tutorial is for anyone who is currently working or want to work on a nodeJS
 ## Table of Contents
 
 - Getting started
-- Improvement #1: The choice of Runner
-- Improvement #2:
+- Initial Version
+- Improvement #1: The Choice of Runner

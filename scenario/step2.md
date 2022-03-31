@@ -1,25 +1,21 @@
-# The choice of Runner
+# Presentation
 
-The choice of the type of machine on which the workflow will run is the first improvement you can achieve. Indeed, depending on the tasks you want to accomplish in your workflow, a specific runner may perform better and therefore faster than another runner.
+This repository is a simple nodeJS project with TODO...
 
-GitHub Actions can use two types of runners:
-- **GitHub-hosted runners**: each job of a workflow will run in a new instance of a virtual environement cleaned and maintained by GitHub. The list of all possible runners can be found [here](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners).
-- **Self-hosted runners**: each job of a workflow will run in a runner that you host and therefore can customize to satisfy your needs. This kind of runners could be useful is your jobs need a special software that are not installed on the GitHub-hosted runners for example. More information about this kind of runners can be found [here](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners).
+# The Initial Workflow
 
-You will find a list of differences between these two types of runners [here](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#differences-between-github-hosted-and-self-hosted-runners). In the tutorial, you will use the GitHub-hosted runners.
+The initial workflow is located in `.github/workflows/ci.yml`. Here is the description on this initial version:
 
-## Practical part
+- Line 1: The name of the workflow
+- Lines 3-7: The events on which the workflow should be triggered
+- Line 11: Define the jobs
+- Line 12: The name of the unique job
+- Line 13: The runner on which the workflow is run
+- Line 14: Define the steps
+- Line 15: This [action](https://github.com/actions/checkout) allow us to access the repository
+- Line 16: A [GitHub Action](https://github.com/actions/setup-node) for node
+- Line 17-18: Define the node version
+- Line 19: First command, install all the packages
+- Line 20: Second command, run the tests
 
-In the workflow file `ci.yml`, the runner is specified using the `runs-on` attribute. Currently, the runner is a macOS machine. Let's see if a Linux based machine can perform better.
-
-To do this, change the line 
-```
-runs-on: macOS
-```
-With the line
-```
-runs-on: ubuntu-latest
-```
-Note: `ubuntu-latest` means Ubuntu 20.04.
-
-Now commit and push this change and you should see a small improvement (few seconds) in execution time.
+To summarize, this initial workflow simply uses node version 16.x on a macOS machine, install all packages and run all the tests.
