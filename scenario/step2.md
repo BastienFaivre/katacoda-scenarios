@@ -10,7 +10,7 @@ You will find a list of differences between these two types of runners [here](ht
 
 ## Practical part
 
-In the workflow file, the runner is specified using the `runs-on` attribute. Currently, the runner is a macOS machine. Let's see if a Linux based machine can perform better.
+In the workflow file `ci.yml`, the runner is specified using the `runs-on` attribute. Currently, the runner is a macOS machine. Let's see if a Linux based machine can perform better.
 
 To do this, change the line 
 ```
