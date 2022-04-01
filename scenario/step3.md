@@ -23,3 +23,5 @@ runs-on: ubuntu-latest
 Note: `ubuntu-latest` means Ubuntu 20.04.
 
 Now commit and push this change and you should see a small improvement (few seconds) in execution time.
+
+Note: to avoid an unexpected behaviour, run the workflow 2-3 times to get an average value.

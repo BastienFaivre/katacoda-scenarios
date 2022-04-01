@@ -21,3 +21,4 @@ This tutorial is for anyone who is currently working or want to work on a nodeJS
 - Getting started
 - Initial Version
 - Improvement #1: The Choice of Runner
+- Improvement #2: NPM vs Yarn

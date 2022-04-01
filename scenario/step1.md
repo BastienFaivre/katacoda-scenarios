@@ -1,6 +1,6 @@
 # Fork the nodeJS project
 
-The first task is to fork the [sample nodeJS project](TODO). To achieve this, visit the repository link and click on the fork button at the top right of the page:
+The first task is to fork the [sample nodeJS project]([TODO](https://github.com/BastienFaivre/katacoda-GH-actions)). To achieve this, visit the repository link and click on the fork button at the top right of the page:
 
 TODO insert image
 
