@@ -1,38 +1,38 @@
 {
-    "title": "Optimize GitHub actions for nodeJS project",
-    "description": "This tutorial aims to show you how you can speed up your GitHub actions",
-    "difficulty": "Intermediate",
-    "time": "30 minutes",
-    "details": {
-      "steps": [
-        {
-          "title": "Getting started",
-          "text": "step1.md"
-        },
-        {
-          "title": "Initial Version",
-          "text": "step2.md"
-        },
-        {
-          "title": "Improvement #1",
-          "text": "step3.md"
-        },
-        {
-          "title": "Improvement #2",
-          "text": "step4.md"
-        }
-      ],
-      "intro": {
-        "text": "intro.md"
+  "title": "Optimize GitHub actions for nodeJS project",
+  "description": "This tutorial aims to show you how you can speed up your GitHub actions",
+  "difficulty": "Intermediate",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Getting started",
+        "text": "step1.md"
       },
-      "finish": {
-        "text": "finish.md"
+      {
+        "title": "Initial Version",
+        "text": "step2.md"
+      },
+      {
+        "title": "Improvement #1",
+        "text": "step3.md"
+      },
+      {
+        "title": "Improvement #2",
+        "text": "step4.md"
       }
+    ],
+    "intro": {
+      "text": "intro.md"
     },
-    "environment": {
-      "uilayout": "vscode-terminal-split"
-    },
-    "backend": {
-      "imageid": "ubuntu:2004"
+    "finish": {
+      "text": "finish.md"
     }
+  },
+  "environment": {
+    "uilayout": "vscode-terminal-split"
+  },
+  "backend": {
+    "imageid": "ubuntu:2004"
   }
+}
