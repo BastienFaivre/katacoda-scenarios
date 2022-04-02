@@ -1,4 +1,4 @@
-# Fork the nodeJS project
+# Fork the nodeJS Project
 
 The first task is to fork the [sample nodeJS project](https://github.com/BastienFaivre/katacoda-GH-actions). To achieve this, visit the repository link and click on the fork button at the top right of the page:
 
@@ -6,7 +6,7 @@ The first task is to fork the [sample nodeJS project](https://github.com/Bastien
 
 Once you have done that, you should enable GitHub Actions on your fork. This is done by going into the `Actions` tab and clicking the big green button.
 
-# Choose your environment
+# Choose your Environment
 
 This tutorial can be done in 2 environments:
 

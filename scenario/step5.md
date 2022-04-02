@@ -1,4 +1,4 @@
-# setup-node cache functionality
+# setup-node Cache Functionality
 
 By looking at the detailed execution of the worlflow, you probably noticed that the main problem that slows down it is the command:
 
@@ -8,7 +8,7 @@ yarn install
 
 That installs all the necessary packages. Taking into account that the majority of the packages are used at each execution of the workflow, the idea of caching them between the different executions would seem to be a good idea.
 
-# Practical part
+# Practical Part
 
 By reading the [setup-node](https://github.com/actions/setup-node) functionalities, you can notice that it provides an [action](https://github.com/actions/setup-node#caching-packages-dependencies) that caches the package dependencies. Let's implement it.
 
