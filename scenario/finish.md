@@ -1,20 +1,9 @@
+This is it, you just learnt some techniques to speed up your workflows!
 
-On the finish page, summarize what was just learned:
+# Take-home message
 
-- 3-4 bullets
-- of what you just
-- did and learned
-
-## Table of Contents
-
-If the scenario is part of a set of related scenarios, the table of contents will appear here as a bulleted list of all the scenario titles, with links to each other.
-
-- Scenario A
-- Scenario B
-- Scenario C
+All resources are precious, especially your time and that of others. Don't waste them, use them intelligently.
 
 ## Further Learning
 
-You could link to other learning resources here. What is a good next step for a learner who just completed this scenario?
-
-
+If you want to learn more about GitHub actions, you should have a look on their [documentation](https://docs.github.com/en/actions).
