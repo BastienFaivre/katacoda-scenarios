@@ -15,10 +15,12 @@ By reading the [setup-node](https://github.com/actions/setup-node) functionaliti
 Two more parameters need to be added for setup-node in order to use the cache feature:
 
 1. Firstly, we need to specify the package manager used for the project, `yarn` in our case. This is done using the line:
+   
    ```
    cache: `yarn`
    ```
 2. Secondly, the path to the lock file (`yarn.lock`) should also be specified using:
+   
    ```
    cache-dependency-path: ./yarn.lock
    ```
