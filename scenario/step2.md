@@ -19,3 +19,5 @@ The initial workflow is located in `.github/workflows/ci.yml`. Here is the descr
 - Line 20: Second command, run the tests
 
 To summarize, this initial workflow simply uses node version 16.x on a macOS machine, install all packages and run all the tests.
+
+Run the workflow few times to see the initial time execution. You can do this by... TODO
