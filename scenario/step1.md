@@ -4,9 +4,11 @@ The first task is to fork the [sample nodeJS project](https://github.com/Bastien
 
 ![fork](./assets/fork.png)
 
+Once you have done that, you should enable GitHub Actions on your fork. This is done by going into the `Actions` tab and clicking the big green button.
+
 # Choose your environment
 
-To complete this tutorial, you can choose between two possibilities:
+This tutorial can be done in 2 environments:
 
 - Clone the forked repository on your machine and work locally (i.e. outside the web browser)
 
@@ -21,6 +23,8 @@ To complete this tutorial, you can choose between two possibilities:
     git config --global user.name "yourName"
     git config --global user.email "yourEmail@email.com"
     ```
+
+    Alternately you could setup ssh keys on the katacoda enviroment, but be sure to delete them once you are done.
 
 
 
