@@ -1,8 +1,8 @@
 # Fork the nodeJS project
 
-The first task is to fork the [sample nodeJS project](TODO). To achieve this, visit the repository link and click on the fork button at the top right of the page:
+The first task is to fork the [sample nodeJS project](https://github.com/BastienFaivre/katacoda-GH-actions). To achieve this, visit the repository link and click on the fork button at the top right of the page:
 
-TODO insert image
+![fork](./assets/fork.png)
 
 # Choose your environment
 
@@ -19,6 +19,7 @@ To complete this tutorial, you can choose between two possibilities:
     Note: Git could ask you to set the global settings such as the username and the email, if it is the case, just execute the commands given by Git, for instance:
     ```
     git config --global user.name "yourName"
+    git config --global user.email "yourEmail@email.com"
     ```
 
 
