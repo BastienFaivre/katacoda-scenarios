@@ -18,7 +18,7 @@ A first idea to implement this is to copy the whole `test_n_lint` job for all po
 |macOS-latest|14|
 |macOS-latest|16|
 
-This will lead to 9 almost *copy job* with just 2 parameters changing each time. Furthermore, the code lenght is clearly increased. Isn't there an easier way to implement this ? The answer is yes, using [build matrix](https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs).
+This will lead to 9 almost *copy jobs* with just two parameters changing each time. Furthermore, the code lenght is clearly increased. Isn't there an easier way to implement this ? The answer is yes, using [build matrix](https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs).
 
 # Practical Part
 
