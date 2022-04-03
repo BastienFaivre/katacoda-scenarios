@@ -4,28 +4,11 @@ Let's talk about the choice of the package manager. The two most popular are `np
 
 The most interesting difference considered for this tutorial is the package installation speed. Indeed, `yarn` installs packages in parallel while `npm` installs them sequentially. Therefore this feature should help you to speed your workflows.
 
-Note: see the resources below for further information about the difference between the two package managers.
+Note: depending on your needs, the choice of the package manager should not only be based on the speed capacity, see the resources below for further information about the difference between the two package managers.
 
 # Practical part
 
-The project currently use `npm` as package manager. To change to `yarn`, do the following steps:
-
-1. Delete the file `package-lock.json` and the folder `node_modules` using the following command:
-   
-   ```
-   rm -rf package-lock.json node_modules
-   ```
-2. Run the following command to re-install all the packages using `yarn`:
-
-    ```
-    yarn install
-    ```
-
-    This command will create a new file called `yarn.lock` that is the equivalence of the file `package-lock.json`, but for `yarn`. The `node_modules` folder will also be re-created.
-
-Commit and push the changes and as for the previous step, you should see an improvement in execution time.
-
-Note: to avoid an unexpected behaviour, run the workflow 2-3 times to get an average value.
+The project already use `yarn` as package manager, therefore there is nothing practical to do for this step.
 
 # Resources
 
