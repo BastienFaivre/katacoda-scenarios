@@ -52,7 +52,7 @@ Okey, lets break this down.
 Caches are stored for 7 days, and if you reach the max capacity of storage caches will be evicted based on how often they are used.
 
 
-`actions/cache@v3` outputs a boolean value that indicates if there was a cache hit or miss. We can use this output to skip the dependency installation step completely if we have a cache miss. We can accesses the output value using the `id` we defined for the cache step. Edit the `Install dependencies` step to look like this,
+`actions/cache@v3` outputs a boolean value that indicates if there was a cache hit or miss. We can use this output to skip the dependency installation step completely if we have a cache hit. We can accesses the output value using the `id` we defined for the cache step. Edit the `Install dependencies` step to look like this,
 
 
 ```yaml
