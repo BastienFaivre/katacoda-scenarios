@@ -8,8 +8,9 @@ You start with a provided sample nodeJS project and a naive GitHub Actions workf
 
 ## Learning Objective
 
-- Speed up workflows
-- Write clean workflows code
+- Learn the basics of GitHub Actions
+- Learn techniques to speed up workflows
+- Learn *when* to use these techniques
 - Save precious time and resources
 
 ## Prerequisite Skills
