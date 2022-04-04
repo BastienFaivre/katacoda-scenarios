@@ -18,13 +18,12 @@ This tutorial can be done in 2 environments:
 
     You can clone the repository in the katacoda shell using the HTTPS link. Then work on the provided VSCODE editor. To be able to commit and push the code, you need to generate an authorization token in your GitHub account settings. Please follow [this tutorial](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate the access token. Note: make sure to select the *repo* section in the permissions. Afterwards, each time you want to push, you need to specify your GitHub username and give the access token as password.
 
-    Note: Git could ask you to set the global settings such as the username and the email, if it is the case, just execute the commands given by Git, for instance:
+    > NOTE: SAVE THIS TOKEN TO A FILE SOMEWHERE! You can only view it once. Make sure to delete it after the tutorial.
+
+    Execute the following commands with your GitHub account name and email
     ```
     git config --global user.name "yourName"
     git config --global user.email "yourEmail@email.com"
     ```
 
     Alternately you could setup ssh keys on the katacoda enviroment, but be sure to delete them once you are done.
-
-
-
