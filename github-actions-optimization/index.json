@@ -2,7 +2,7 @@
   "title": "Optimize GitHub actions for nodeJS project",
   "description": "This tutorial aims to show you how you can speed up your GitHub actions",
   "difficulty": "Intermediate",
-  "time": "30 minutes",
+  "time": "90 minutes",
   "details": {
     "steps": [
       {
