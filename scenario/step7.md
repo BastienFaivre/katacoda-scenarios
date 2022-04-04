@@ -82,6 +82,9 @@ function mult(a,b) {
 }
 ```
 
-Commit and push the changes. This should trigger the tests for **only** the `mult` function to run. Go to the repository and make a pull request to the main branch. This will trigger an additional workflow run, which also only runs the test for the `mult` function. If you look at the commit hash that was used as a reference it should be for the commit where we initially branched off.
+Commit and push the changes. This should trigger the tests for **only** the `mult` function to run. Go to the repository and make a pull request to the main branch. This will trigger an additional workflow run, which also only runs the test for the `mult` function. If you look at the commit hash that was used as a reference it should be for the commit where we initially branched off. 
 
 Great! This kind of test running can be a huge time saver for very large test suites, but you will have to be careful to make sure that you are not missing test cases. Let's continue to the next step.
+
+> OBS:
+> Switch back to the main branch for future steps!
