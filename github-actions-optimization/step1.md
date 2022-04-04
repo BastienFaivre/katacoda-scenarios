@@ -16,7 +16,7 @@ This tutorial can be done in 2 environments:
 
 - Clone the forked repository in the katacoda environment and work in the web browser
 
-    You can clone the repository in the katacoda shell using the HTTPS link. Then work on the provided VSCODE editor. To be able to commit and push the code, you need to generate an authorization token in your GitHub account settings. Please follow [this tutorial](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate the access token. Note: make sure to select the *repo* section in the permissions. Afterwards, each time you want to push, you need to specify your GitHub username and give the access token as password.
+    You can clone the repository in the katacoda shell using the HTTPS link. Then work on the provided VSCode editor. To be able to commit and push the code, you need to generate an authorization token in your GitHub account settings. Please follow [this tutorial](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate the access token. Note: make sure to select the *repo* section in the permissions. Afterwards, each time you want to push, you need to specify your GitHub username and give the access token as password.
 
     > NOTE: SAVE THIS TOKEN TO A FILE SOMEWHERE! You can only view it once. Make sure to delete it after the tutorial.
 

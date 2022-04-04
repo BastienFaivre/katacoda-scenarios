@@ -1,6 +1,6 @@
 # Test Project
 
-Once you have forked the sample project you should be able to edit it using the builtin editor on katacoda, or your favorite editor of choice if you are doing the tutorial locally
+Once you have cloned the fork of the sample project you should be able to edit it using the builtin VSCode instance on katacoda, or your favorite editor of choice if you are doing the tutorial locally.
 
 The forked repository is a simple "dummy" project that will be used just to test out the workflow. It consists of 2 implementations of simple arithmetic operations in the files `add.js` and `mult.js` with corresponding test files `add.test.js` `mult.test.js`. The project uses `jest` as the testing framework, and uses `eslint` for linting.
 
