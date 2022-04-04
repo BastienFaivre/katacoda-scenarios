@@ -8,7 +8,7 @@ We want to abort these irrelevant pipelines not necessarily to optimize for spee
 
 There is a property called [concurrency](https://docs.github.com/en/actions/using-jobs/using-concurrency) in GitHub Actions, which can be used for this exact purpose.
 
-Right before the `steps` block in the `Test n' Lint` job we add,
+Right before the `jobs` add this piece of configuration,
 
 ```yaml
 ...
