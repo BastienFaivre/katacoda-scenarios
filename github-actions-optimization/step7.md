@@ -89,7 +89,7 @@ Great! This kind of test running can be a huge time saver for very large test su
 > OBS:
 > Switch back to the main branch for future steps!
 
-`ci.yml` should look somethin like this now
+`ci.yml` should look something like this now
 
 ```yaml
 # ci.yml
