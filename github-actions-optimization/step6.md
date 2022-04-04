@@ -19,7 +19,7 @@ First we remove the lines,
 ...
 ```
 
-that we added in the previous step to the `setup-node` block. We now add the following configuration.
+that we added in the previous step to the `setup-node` block. We now add the following configuration before the `Install dependencies` step.
 
 ```yaml
 ...
@@ -68,4 +68,51 @@ We added the `--cache-folder` flag to specify where the global `yarn` cache is k
 
 Commit your changes, this will initially fetch all packages as we have changed our caching system, note the installation time of `yarn install`. Once the pipeline is run you can trigger a `workflow_dispatch` event from the GitHub UI to see the caching in action. 
 
-Add a new package to the project with `yarn add` and commit the changes. This should invalidate the cache and cause a new `yarn install`, but the install time should be significantly faster.
+Add a new package to the project with `yarn add` and commit the changes. This should invalidate the cache and cause a new `yarn install`, but the install time should be significantly faster. `yarn` will only fetch this new package with its respective dependencies.
+
+`ci.yml` should look something like this
+
+```yaml
+# ci.yml
+name: CI Pipeline
+
+on: [pull_request, push, workflow_dispatch]
+
+jobs:
+  test_n_lint:
+    name: Test n' Lint
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout source code and setup node version.
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+
+      # Cache dependencies
+      - name: Cache Yarn
+        uses: actions/cache@v3
+        id: cache-yarn
+        env:
+          cache-name: yarn-cache
+        with:
+          path: |
+            node_modules
+            .yarn
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ env.cache-name }}-
+
+      # Install dependencies 
+
+      - name: Install dependencies
+        if: steps.cache-yarn.outputs.cache-hit != 'true'
+        run: yarn install --prefer-offline --cache-folder .yarn
+      
+      # Test n' Lint !
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test
+```
