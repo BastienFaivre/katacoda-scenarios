@@ -2,7 +2,7 @@ That's it! Hopefully you learned a couple of techniques to improve your GitHub A
 
 # Take-home message
 
-- Avoid doing reaching out to third-parties over the network by caching.
+- Avoid reaching out to third-parties over the network by caching.
 - Experiment with what works best for **your** project! Some "improvements" may introduce too much overhead to be effective.
 - If test-suites are slow, you can try to only run the affected tests.
   - Be aware of weird behavior, you are making a trade-off between being sure that you are correct and speed.
