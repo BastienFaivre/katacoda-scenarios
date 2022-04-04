@@ -1,10 +1,8 @@
-# Interactive Katacoda Scenarios
+# Katacoda-scenarios
 
-[![](http://shields.katacoda.com/katacoda/bastienfaivre/count.svg)](https://www.katacoda.com/bastienfaivre "Get your profile on Katacoda.com")
+## GitHub Actions Optimization for node.js projects
 
-Visit https://www.katacoda.com/bastienfaivre to view the profile and interactive scenarios
+This tutorial is a step-by-step explanationexplenation of how to build an efficient GitHub Actions pipeline for a node.js project.
 
-### Writing Scenarios
-Visit https://www.katacoda.com/docs to learn more about creating Katacoda scenarios
-
-For examples, visit https://github.com/katacoda/scenario-example
+- Code for the katacoda is found in the `github-actions-optimization` folder.
+- The katacoda is found [here](https://www.katacoda.com/bastienfaivre/scenarios/github-actions-optimization)
