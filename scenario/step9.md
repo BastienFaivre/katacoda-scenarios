@@ -1,42 +1,122 @@
-Time improvements are really interesting. However, there exist other improvements unrelated to time that indirectly save you time.
+# Running independent jobs 
 
-# Use Build Matrix
-
-Let's say that the project should now be tested, not only on `ubuntu-latest` (i.e Ubuntu 20.04), but also on `macOS-latest` and `ubuntu-18.04`. Furthermore, the project should also be working for older version of nodeJS such as `14` or even `12`.
-
-A first idea to implement this is to copy the whole `test_n_lint` job for all possible pairs [runner, node version]:
-
-| runner | node version |
-|----|--------------|
-|ubuntu-latest|12|
-|ubuntu-latest|14|
-|ubuntu-latest|16|
-|ubuntu-18.04|12|
-|ubuntu-18.04|14|
-|ubuntu-18.04|16|
-|macOS-latest|12|
-|macOS-latest|14|
-|macOS-latest|16|
-
-This will lead to 9 *copy jobs* with just two parameters changing each time. Furthermore, the code lenght is clearly increased. Isn't there an easier way to implement this ? The answer is yes, using [build matrix](https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs).
+So far we have run all our different steps in sequence in the large `Test n' Lint` job. However, the actual `Test` and `Lint` are completely independent of each other but they both depend on the `Install dependencies` step. So what we want to do is to first run the dependency installation, and then run both the `Test` and `Lint` steps in parallel
 
 # Practical Part
 
-A [matrix](https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs) allows us to define multiple similar jobs using a single job definition. The idea is to use a matrix to define all variables that need to be changed in the job. In our case, the runner and the node version. This id done by defining a strategy matrix in the job definition:
+By default, GitHub Action runs each job in parallel on separate virtual machines. We can also specify a dependency relationship between jobs, so that one jobs waits for another to finish before it starts.
 
+As the different jobs are run on different machines, there is no "nice" way of transferring data between jobs. We will simply have to rely on the caching mechanism we built get the installed dependencies from the `Install dependencies` step.
+
+We split up the `Test 'n Lint` job into three jobs; `Install Dependencies`, `Test` and `Lint`.
+
+The `Install Dependecies job` will look something like this,
+
+```yarn
+...
+  install_dependencies:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # we can once again do a shallow clone
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Cache Yarn
+        id: cache-yarn
+        uses: actions/cache@v3
+        env:
+          cache-name: yarn-cache
+        with:
+          path: |
+            node_modules
+            .yarn
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ env.cache-name }}-
+
+      - name: Install dependencies
+        if: steps.cache-yarn.outputs.cache-hit != 'true'
+        run: yarn install --prefer-offline --cache-folder .yarn
+...
 ```
-strategy:
-  matrix:
-    runner: [ubuntu-latest, ubuntu-18.04, macOS-latest]
-    node: [12, 14, 16]
+
+The `Lint` job will look like this,
+
+```yarn
+...
+  lint:
+    name: Lint
+    needs: install_dependencies # specify dependency relationship
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # we can once again do a shallow clone
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      # Get the cache saved by install_dependencies
+      - uses: actions/cache@v3
+        env:
+          cache-name: yarn-cache
+        with:
+          path: |
+            node_modules
+            .yarn
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+
+      - name: Lint
+        run: yarn lint "./**/*.js"
+...
 ```
 
-And then retrieve the current value of the variables using `${{ matrix.runner }}` and `${{ matrix.node }}`. The final workflow is therefore:
+And finally, the `Test` job will look like this,
 
+```yaml
+...
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: install_deps
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/cache@v3
+        env:
+          cache-name: yarn-cache
+        with:
+          path: |
+            node_modules
+            .yarn
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+
+      - name: Find reference commit on current branch
+        if: github.event_name != 'pull_request'
+        uses: nrwl/last-successful-commit-action@v1
+        id: last_successful_commit
+        with:
+          branch: '${{ github.ref_name }}'
+          workflow_id: 'ci.yml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup test flags
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]];
+          then
+            echo "TEST_FLAGS=--changedSince ${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
+          elif [[ -n "${{ steps.last_successful_commit.outputs.commit_hash }}" ]];
+          then
+            echo "TEST_FLAGS=--changedSince ${{ steps.last_successful_commit.outputs.commit_hash }}" >> $GITHUB_ENV
+          fi
+...
 ```
-TODO add workflow
-```
 
-Note that the matrix feature also provides tools to [include](https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs) and [exclude](https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs) particular sets of variables if necessary.
+Commit and push the changes. If you inspect the workflow in the repository, you will see the dependency relationship visualised, and you will see that the `Test` and `Lint` jobs are run in parallel.
 
-Commit and push these changes. Here, you will not see any time improvement since we just added 8 more jobs compared to the previous version. However, the idea with this improvement is to show that a clean and intelligent code makes things faster to understand. Let's say that a new employee just arrived in your company and need to understand the workflows. Understanding them will be faster since they are defined in a proper way. Just 4 lines were added against 8 copies of the initial job with the first idea!
+Note that it is very likely that is parallelisation will not improve the overall speed of the pipeline for this project, due to its small scale. This is due to the overhead that we introduced where we need to checkout the code, setup node, and fetch data from the cache for each job. Not to mention that we need to wait for the GitHub Action runner to find three virtual machines, which it self can take up to 15 seconds. Essentially we introduce about 25 - 35 seconds of overhead to save less then one second on the `Lint` job.
+
+But let's imagine if you had 2 independent jobs that took 10 minutes each, then this overhead would be negligible as you would save almost 10 minutes of the entire pipeline which would be a huge performance gain.
