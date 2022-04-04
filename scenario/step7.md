@@ -37,7 +37,7 @@ We will add the following configuration,
 
 ...
   - name: Find refernce commit on current branch
-    if: github.event_name != "pull_request"
+    if: github.event_name != 'pull_request'
     uses: nrwl/last-successfull-commit-action@v1
     id: last_successful_commit
     with:
